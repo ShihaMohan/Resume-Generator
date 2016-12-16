@@ -1,0 +1,45 @@
+<div class="mainform">
+  <header></header>
+  <div class="container-fluid">
+    <form name="myform" class="form" novalidate>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-lg-12">
+          <label for="Name">NAME</label>
+          <div ng-class="{ 'has-error' : myform.name.$invalid && !myform.name.$pristine}">
+            <input name="name" class="form-control" type="text" placeholder="Name" ng-minlength="3" ng-model="Name" required />
+            <p ng-show="myform.name.$error.minlength" class="help-block">Name is too short.</p>
+            <p ng-show="myform.name.$error.required" class="help-block">Name is Required</p>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-sm-8 col-lg-8">
+          <label for="address">ADDRESS</label>
+          <div ng-class="{ 'has-error' : myform.contact_address.$invalid && !myform.contact_address.$pristine}">
+            <textarea rows="3" class="form-control" name="contact_address" id="contact_address" placeholder="Address" ng-model="address" required></textarea>
+            <p ng-show="myform.contact_address.$error.required" class="help-block">Address is Required</p>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-lg-12">
+          <label for="password">CONTACT NO</label>
+          <div ng-class="{ 'has-error' : myform.number.$invalid && !myform.number.$pristine}">
+            <input name="number" class="form-control" type="text" placeholder="Contact Number" ng-model="number" ng-minlength="10" required />
+            <p ng-show="myform.number.$error.minlength" class="help-block">Invalid Number</p>
+            <p ng-show="myform.number.$error.required" class="help-block">Mobile Number is Required</p>
+          </div>
+          <label for="email">EMAIL</label>
+          <div ng-class="{ 'has-error' :myform.email.$invalid && !myform.email.$pristine}">
+            <input name="email" class="form-control" type="email" placeholder="Email" ng-model="email" required/>
+            <p ng-show="myform.email.$error.required" class="help-block">Email is Required</p>
+            <p ng-show="myform.email.$invalid && !myform.email.$pristine" class="help-block">Invalid Email</p>
+          </div>
+        </div>
+        <hr>
+        <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+          <button class="button" type="submit" ng-click="save(Name, address, number, email)" ng-disabled="myform.$invalid">Save</button>
+          <button class="button" type="button" ng-click="redirect()" ng-disabled="isDisabled">Next</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

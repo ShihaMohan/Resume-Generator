@@ -1,0 +1,27 @@
+<div class="mainform">
+  <header></header>
+  <div class="container-fluid">
+    <form name="myform" class="form">
+      <div class="row">
+        <div class="col-md-8 col-sm-8 col-lg-8">
+          <label for="education">EDUCATIONAL DETAILS</label>
+          <div ng-class="{ 'has-error' :myform.qualification.$invalid && !myform.qualification.$pristine || myform.qualification.$invalid && !myform.qualification.$pristine || myform.grade.$invalid && !myform.grade.$pristine || myform.year.$invalid && !myform.year.$pristine}">
+            <input type="text" class="form-control" name="qualification" id="qualification" placeholder="qualification" ng-model="qualification" required />
+            <input type="text" class="form-control" name="board" id="board" placeholder="Board/University" ng-model="board" required />
+            <input type="text" class="form-control" name="grade" id="grade" placeholder="Grade/Percentage" ng-model="grade" required />
+            <input type="number" class="form-control" name="year" id="year" placeholder="Year of qualification" ng-model="year" min="2000" max="2016" required />
+            <p ng-show="myform.qualification.$error.required || myform.board.$error.required || myform.grade.$error.required || myform.year.$error.required" class="help-block">Field is Required</p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+          <button class="button" type="submit" ng-click="educationsave(qualification, board, grade, year)" ng-disabled="myform.$invalid">Save</button>
+          <button class="button" type="button" ng-click="next()" ng-disabled="isDisabled">Next</button>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

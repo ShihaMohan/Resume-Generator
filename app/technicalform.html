@@ -1,0 +1,39 @@
+
+ <div class="mainform">
+  <header></header>
+  <div class="container-fluid">
+    <form name="myform" class="form">
+      <div class="row">
+        <div class="col-md-8 col-sm-8 col-lg-8">
+          <label for="careerobjectives">CAREER OBJECTIVES</label>
+          <div ng-class="{ 'has-error' :myform.objective.$invalid && !myform.objective.$pristine}">
+            <textarea rows="3" class="form-control" name="objective" id="objective" ng-model="objective" required></textarea>
+            <p ng-show="myform.objective.$error.required" class="help-block">Field is Required</p>
+          </div>
+          <hr>
+          <label for="skills">TECHNICAL SKILLS</label>
+          <div ng-class="{ 'has-error' :myform.skills.$invalid && !myform.skills.$pristine}">
+            <textarea rows="3" class="form-control" name="skills" id="skills" ng-model="tech_skills" required></textarea>
+            <p ng-show="myform.skills.$error.required" class="help-block">Field is Required</p>
+          </div>
+          <hr>
+          <label for="project">PROJECT DETAILS</label>
+          <div ng-class="{ 'has-error' :myform.projectdetails.$invalid && !myform.projectdetails.$pristine}">
+            <textarea rows="3" class="form-control" name="projectdetails" id="projectdetails" ng-model="projectdetails" required></textarea>
+            <p ng-show="myform.projectdetails.$error.required" class="help-block">Field is Required</p>
+          </div>
+          <hr>
+          <label for="achievement">ACHIEVEMENTS</label>
+          <div ng-class="{'has-error' :myform.achievements.$invalid && !myform.achievements.$pristine}">
+            <textarea rows="3" class="form-control" name="achievements" id="achievements" ng-model="achievements" required></textarea>
+            <p ng-show="myform.achievements.$error.required" class="help-block">Field is Required</p>
+          </div>
+          <hr>
+          <button class="button" type="submit" ng-click="techsave(objective, tech_skills, projectdetails, achievements)" ng-disabled="myform.$invalid">Save</button>
+          <button class="button" type="button" ng-click="nextform()" ng-disabled="isDisabled">Next</button>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>   
